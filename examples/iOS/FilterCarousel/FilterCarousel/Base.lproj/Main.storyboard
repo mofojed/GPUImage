@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="a2s-My-Ci4">
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="120" id="ms5-ne-kHX"/>
+                                </constraints>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="5" id="NJZ-Re-Pm1">
+                                    <size key="itemSize" width="100" height="120"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="10" minY="0.0" maxX="10" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Preview" id="w5R-XF-iB4" customClass="PreviewCollectionViewCell">
+                                        <rect key="frame" x="10" y="0.0" width="100" height="120"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="100" height="120"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZfR-wC-4r6" customClass="GPUImageView">
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="ZfR-wC-4r6" secondAttribute="height" id="AY5-Uc-2gW"/>
+                                                    </constraints>
+                                                </view>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Filter" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="3PR-lO-H4U">
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstItem="3PR-lO-H4U" firstAttribute="leading" secondItem="w5R-XF-iB4" secondAttribute="leading" constant="5" id="Mbg-8u-Ya8"/>
+                                            <constraint firstAttribute="trailing" secondItem="3PR-lO-H4U" secondAttribute="trailing" constant="5" id="SMd-De-pBY"/>
+                                            <constraint firstAttribute="bottom" secondItem="3PR-lO-H4U" secondAttribute="bottom" id="TBU-ml-0Zr"/>
+                                            <constraint firstItem="ZfR-wC-4r6" firstAttribute="leading" secondItem="w5R-XF-iB4" secondAttribute="leading" id="dea-gk-U1A"/>
+                                            <constraint firstItem="3PR-lO-H4U" firstAttribute="top" secondItem="ZfR-wC-4r6" secondAttribute="bottom" id="jNr-gO-ZbN"/>
+                                            <constraint firstItem="ZfR-wC-4r6" firstAttribute="top" secondItem="w5R-XF-iB4" secondAttribute="top" id="s96-s5-gOk"/>
+                                            <constraint firstAttribute="trailing" secondItem="ZfR-wC-4r6" secondAttribute="trailing" id="yge-Qf-YlZ"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="gpuImageView" destination="ZfR-wC-4r6" id="Y3M-fs-VKr"/>
+                                            <outlet property="nameLabel" destination="3PR-lO-H4U" id="ZXJ-fq-Qur"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="ZSS-3U-rBQ"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="mMk-wM-7jp"/>
+                                </connections>
+                            </collectionView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OQM-tn-7Sq" customClass="GPUImageView">
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="OQM-tn-7Sq" secondAttribute="height" id="Gbx-bP-8vc"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Filter Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xGF-Lf-A7x">
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h3s-v7-J2P">
+                                <subviews>
+                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="lNS-c2-D66">
+                                        <connections>
+                                            <action selector="sliderChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="wEg-uy-cJ7"/>
+                                        </connections>
+                                    </slider>
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bjT-3f-W6q">
+                                        <state key="normal" title="Retake"/>
+                                        <connections>
+                                            <action selector="retakePhoto:" destination="BYZ-38-t0r" eventType="touchUpInside" id="16N-7b-oFe"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SKo-ji-oQ8">
+                                        <state key="normal" image="LaunchSnapshotShutter"/>
+                                        <connections>
+                                            <action selector="takePhoto:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ofR-jv-6Z0"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AQn-n8-0WO">
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="50" id="8hN-aU-kYv"/>
+                                            <constraint firstAttribute="height" constant="50" id="qbp-sW-RaO"/>
+                                        </constraints>
+                                        <state key="normal" image="CAMFlipButton"/>
+                                        <connections>
+                                            <action selector="flipCamera:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Fnd-gG-r0U"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="bjT-3f-W6q" firstAttribute="leading" secondItem="h3s-v7-J2P" secondAttribute="leading" constant="10" id="EnV-E1-SGg"/>
+                                    <constraint firstItem="bjT-3f-W6q" firstAttribute="centerY" secondItem="SKo-ji-oQ8" secondAttribute="centerY" id="H4k-Hd-r4U"/>
+                                    <constraint firstAttribute="bottom" secondItem="SKo-ji-oQ8" secondAttribute="bottom" constant="10" id="Rkd-WB-iIx"/>
+                                    <constraint firstItem="AQn-n8-0WO" firstAttribute="centerY" secondItem="SKo-ji-oQ8" secondAttribute="centerY" id="XDg-hV-g1U"/>
+                                    <constraint firstItem="lNS-c2-D66" firstAttribute="leading" secondItem="h3s-v7-J2P" secondAttribute="leading" constant="10" id="gnk-b3-2f3"/>
+                                    <constraint firstAttribute="trailing" secondItem="AQn-n8-0WO" secondAttribute="trailing" constant="10" id="jSv-vh-SKO"/>
+                                    <constraint firstAttribute="trailing" secondItem="lNS-c2-D66" secondAttribute="trailing" constant="10" id="jYI-4h-xwr"/>
+                                    <constraint firstAttribute="height" constant="120" id="lI2-PX-ZVE"/>
+                                    <constraint firstItem="SKo-ji-oQ8" firstAttribute="top" secondItem="lNS-c2-D66" secondAttribute="bottom" constant="10" id="nkQ-6Y-Adt"/>
+                                    <constraint firstItem="SKo-ji-oQ8" firstAttribute="centerX" secondItem="h3s-v7-J2P" secondAttribute="centerX" id="zlX-Dr-DZP"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="OQM-tn-7Sq" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="2Gn-Ry-SHd"/>
+                            <constraint firstAttribute="trailing" secondItem="h3s-v7-J2P" secondAttribute="trailing" id="8zc-6V-iIp"/>
+                            <constraint firstItem="h3s-v7-J2P" firstAttribute="top" relation="greaterThanOrEqual" secondItem="xGF-Lf-A7x" secondAttribute="bottom" constant="5" id="AqO-6A-LJr"/>
+                            <constraint firstItem="a2s-My-Ci4" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="EVk-3a-z66"/>
+                            <constraint firstItem="a2s-My-Ci4" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="FTj-vh-NpB"/>
+                            <constraint firstItem="OQM-tn-7Sq" firstAttribute="top" relation="greaterThanOrEqual" secondItem="a2s-My-Ci4" secondAttribute="bottom" id="QBo-my-elZ"/>
+                            <constraint firstAttribute="trailing" secondItem="OQM-tn-7Sq" secondAttribute="trailing" id="bM6-0u-j7B"/>
+                            <constraint firstItem="xGF-Lf-A7x" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="10" id="csS-SQ-WGX"/>
+                            <constraint firstAttribute="trailing" secondItem="xGF-Lf-A7x" secondAttribute="trailing" constant="10" id="for-En-cwn"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="h3s-v7-J2P" secondAttribute="bottom" id="gXu-O5-iae"/>
+                            <constraint firstItem="xGF-Lf-A7x" firstAttribute="top" secondItem="OQM-tn-7Sq" secondAttribute="bottom" constant="5" id="jhV-uK-g88"/>
+                            <constraint firstItem="h3s-v7-J2P" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="u9X-EU-l9j"/>
+                            <constraint firstItem="OQM-tn-7Sq" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" priority="900" id="uyg-Yg-xB6"/>
+                            <constraint firstAttribute="trailing" secondItem="a2s-My-Ci4" secondAttribute="trailing" id="v4q-qL-PIl"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="filterLabel" destination="xGF-Lf-A7x" id="5Ig-RW-bCn"/>
+                        <outlet property="flipButton" destination="AQn-n8-0WO" id="qOx-eq-LF1"/>
+                        <outlet property="gpuImageView" destination="OQM-tn-7Sq" id="sfO-Jv-qef"/>
+                        <outlet property="previewCollectionView" destination="a2s-My-Ci4" id="fNq-Wt-1YE"/>
+                        <outlet property="retakeButton" destination="bjT-3f-W6q" id="Otr-9q-gKe"/>
+                        <outlet property="shutterButton" destination="SKo-ji-oQ8" id="jy5-lB-21K"/>
+                        <outlet property="slider" destination="lNS-c2-D66" id="5R5-jW-qXK"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="CAMFlipButton" width="28" height="21"/>
+        <image name="LaunchSnapshotShutter" width="66" height="66"/>
+    </resources>
+</document>
