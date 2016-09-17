@@ -14,13 +14,14 @@
 
 @property (weak, nonatomic) IBOutlet UICollectionView *previewCollectionView;
 @property (weak, nonatomic) IBOutlet GPUImageView *gpuImageView;
+@property (weak, nonatomic) IBOutlet UIView *savedView;
 @property (weak, nonatomic) IBOutlet UILabel *filterLabel;
 
 @property (weak, nonatomic) IBOutlet UISlider *slider;
 @property (weak, nonatomic) IBOutlet UIButton *retakeButton;
 @property (weak, nonatomic) IBOutlet UIButton *shutterButton;
 @property (weak, nonatomic) IBOutlet UIButton *flipButton;
-
+@property (weak, nonatomic) IBOutlet UIButton *saveButton;
 
 @property GPUImageStillCamera *camera;
 
@@ -113,6 +114,7 @@
 #pragma mark - IBActions
 - (IBAction)retakePhoto:(id)sender {
     self.flipButton.hidden = NO;
+    self.saveButton.hidden = YES;
     self.shutterButton.hidden = NO;
     self.retakeButton.hidden = YES;
     
@@ -124,6 +126,7 @@
 
 - (IBAction)takePhoto:(id)sender {
     self.flipButton.hidden = YES;
+    self.saveButton.hidden = NO;
     self.shutterButton.hidden = YES;
     self.retakeButton.hidden = NO;
     
@@ -170,6 +173,27 @@
 
 - (IBAction)sliderChanged:(UISlider*)slider {
     [self.filter updateFilterWithValue:slider.value];
+    
+    if (nil != self.capturedImageSource) {
+        [self.capturedImageSource processImage];
+    }
+}
+
+- (IBAction)savePhoto:(id)sender {
+    GPUImageOutput<GPUImageInput> *filter = self.filter.filter;
+    UIImage *filteredImage = [filter imageByFilteringImage:self.capturedImage];
+    UIImageWriteToSavedPhotosAlbum(filteredImage, nil, nil, nil);
+    
+    [UIView animateWithDuration:0.5 animations:^{
+        self.savedView.alpha = 1;
+    } completion:^(BOOL finished) {
+        [UIView animateWithDuration:0.5 animations:^{
+            self.savedView.alpha = 0.95;
+        } completion:^(BOOL finished) {
+            self.savedView.alpha = 0;
+            [self retakePhoto:sender];
+        }];
+    }];
 }
 
 #pragma mark - UICollectionViewDataSource
